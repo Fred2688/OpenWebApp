@@ -1,0 +1,13 @@
+.selected {
+	background-color: green;
+}
+
+.alcohol-list {
+	width: 50%;
+	float:left;
+}
+
+.drink-list {
+	width: 50%;
+	float:left;
+}

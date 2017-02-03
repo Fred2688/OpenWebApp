@@ -1,0 +1,11 @@
+Lancement du projet:
+
+	Dans une console:
+
+		java -jar OpenWebApp.jar
+	
+	Puis dans un navigateur:
+
+		http://localhost:8080/login.html
+
+

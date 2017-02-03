@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="AlcoholApp">
+<head>
+
+<script src="/scripts/angular.min.js"></script>
+<script src="/scripts/app.js"></script>
+
+<link rel="stylesheet" href="/scripts/bootstrap.min.css">
+<link rel="stylesheet" href="/styles/styleal.css">
+</head>
+<body ng-controller="AlcoholCtrl">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="todolist not-done">
+					<h1>Alcohol</h1>
+
+					<input type="text" class="form-control add-todo"
+						ng-model="newAlcoholName" placeholder="add new alcohol" />
+					<button id="checkAll" class="btn btn-success"
+						ng-click="alcohol.newAlcohol()">Add new alcohol</button>
+
+					<hr>
+					<div id="sortable" class="list-group">
+						<a href="" class="list-group-item"
+							ng-repeat="a in alcohol.list | filter:search | orderBy:'name':order"
+							ng-class="{selected: alcohol.selected == a.id}"
+							ng-click="alcohol.selectAlcohol(a.id)"> {{a.name}}</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="todolist">
+					<h1>Drinks</h1>
+					<div ng-show="alcohol.selected != null">
+						<input type="text" class="form-control add-todo"
+							ng-model="newDrinkName" placeholder="add new drink" />
+						<button id="checkAll" class="btn btn-success"
+							ng-click="alcohol.newDrink()">Add new drink</button>
+					</div>
+					<hr>
+					<ul class="list-unstyled">
+						<li
+							ng-repeat="d in alcohol.getDrinkList(alcohol.selected) | orderBy:'name'">
+							{{d.name}}</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
